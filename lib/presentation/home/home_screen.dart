@@ -10,6 +10,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
+  int indexSelection = 0;
+
   @override
   Widget build(BuildContext context) {
 
@@ -70,6 +72,52 @@ class _HomeScreenState extends State<HomeScreen> {
                                     blurRadius: 8
                                   )
                                 ]
+                              ),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 12),
+                                    child: Container(
+                                      padding: EdgeInsets.all(1),
+                                      decoration: BoxDecoration(
+                                        color: colorScheme.tertiary,
+                                        borderRadius: BorderRadius.circular(6)
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: CustomTabItem(
+                                              onTap: () => setState(() => indexSelection = 0),
+                                              isSelected: indexSelection == 0, 
+                                              title: "Select image"
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: CustomTabItem(
+                                              onTap: () => setState(() => indexSelection = 1),
+                                              isSelected: indexSelection == 1, 
+                                              title: "Take a picture"
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: constraints.maxWidth,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 18),
+                                      child: IndexedStack(
+                                        index: indexSelection,
+                                        children: [
+                                          Text('Texto 1'),
+                                          Text('Texto 2'),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  
+                                ],
                               ),
                             )
                           )
