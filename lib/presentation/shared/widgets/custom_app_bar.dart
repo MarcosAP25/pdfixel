@@ -1,14 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
-PreferredSizeWidget CustomAppBar 
-({
-  required BuildContext context,
-}){
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({super.key});
 
-  return AppBar(
-    title: SizedBox(
-      width: 150,
-      child: Image.asset('assets/images/horizontal_logo.png'),
-    ),
-  );
+  @override
+  Widget build(BuildContext context) {
+
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                
+              }, 
+              icon: Icon(
+                LucideIcons.menu,
+                color: colorScheme.onSecondary,
+              )
+            )
+          ],
+        );
+      },
+    );
+  }
 }

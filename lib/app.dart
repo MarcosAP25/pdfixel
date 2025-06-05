@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pdfixel/config/theme.dart';
 import 'package:pdfixel/presentation/home/home_screen.dart';
 
 class App extends StatelessWidget {
@@ -9,6 +10,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'PDFixel',
       debugShowCheckedModeBanner: false,
+      theme: theme,
       home: HomeScreen(),
     );
   }
